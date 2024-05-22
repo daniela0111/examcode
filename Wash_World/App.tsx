@@ -8,7 +8,7 @@ interface AppProps {}
 const App: React.FC<AppProps> = () => {
   return (
     <Provider store={store}>
-      <SignUpScreen />
+      <SignUpScreen email={''} password={''} licensePlate={''} />
     </Provider>
   );
 };
