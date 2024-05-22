@@ -1,19 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store'; 
+import SignUpScreen from './screens/SignUpScreen'; 
 
+interface AppProps {}
 
-export default function App() {
+const App: React.FC<AppProps> = () => {
   return (
-      <HomeScreen />
+    <Provider store={store}>
+      <SignUpScreen />
+    </Provider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textDecorationColor: '',
-  }
-});
+export default App;
+

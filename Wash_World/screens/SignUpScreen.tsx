@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { signUp } from './actions'; // Import your sign-up action
+import { signUp } from '../actions';
 
 interface SignUpFormState {
   email: string;
