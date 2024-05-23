@@ -31,8 +31,16 @@ const SignUpScreen: React.FC<SignUpFormState> = () => {
           placeholder="Email"
           keyboardType="email-address"
           autoCapitalize="none"
-          style={{ backgroundColor: '#f2f2f2', padding: 10, borderRadius: 5, marginBottom: 10 }}
+          style={{
+            backgroundColor: '#e0e0e0',
+            padding: 15,
+            borderRadius: 8,
+            borderColor: '#ccc',
+            borderWidth: 1,
+            marginBottom: 10,
+          }}
         />
+
         <TextInput
           placeholder="Password"
           secureTextEntry={true}
