@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { signUp } from '../actions'; // Assuming this is a typed action creator
+import { signUp } from '../../actions'; // Assuming this is a typed action creator
 
 interface SignUpFormState {
   email: string;
