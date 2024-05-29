@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
-import { useDispatch } from 'react-redux';
+//import { useDispatch } from 'react-redux';
 import { signUp } from '../../actions'; // Assuming this is a typed action creator
 
 interface SignUpFormState {
@@ -9,16 +9,16 @@ interface SignUpFormState {
   licensePlate: string;
 }
 
-const SignUpScreen: React.FC<SignUpFormState> = () => {
+const SignUpScreen:React.FC = () => {
   const [formData, setFormData] = useState<SignUpFormState>({
     email: '',
     password: '',
     licensePlate: '',
   });
-  const dispatch = useDispatch<any>(); // Assuming useDispatch has a generic type
+//  const dispatch = useDispatch<any>(); // Assuming useDispatch has a generic type
 
   const handleSignUp = () => {
-    dispatch(signUp(formData.email, formData.password, formData.licensePlate));
+   // dispatch(signUp(formData.email, formData.password, formData.licensePlate));
   };
 
   return (
