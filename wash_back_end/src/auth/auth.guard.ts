@@ -12,13 +12,10 @@ import {
   import { AppService } from 'src/app.service';
   import { AppController } from 'src/app.controller';
   import { AuthGuard } from '@nestjs/passport';
+import { APP_GUARD, Reflector } from '@nestjs/core';
+import { IS_PUBLIC_KEY } from 'src/app.module';
 
-  @Module({
-    imports: [ClientModule],
-    controllers: [AppController],
-    providers: [AppService, { provide: APP_GUARD, useClass: AuthGuard }],
-  })
-  export class AppModule {}
+
   
   @Injectable()
   export class AuthGuard implements CanActivate {
@@ -59,3 +56,10 @@ import {
         return type === 'Bearer' ? token : undefined;
       }
     }
+
+    @Module({
+        imports: [ClientModule],
+        controllers: [AppController],
+        providers: [AppService, { provide: APP_GUARD, useClass: AuthGuard }],
+      })
+      export class AppModule {}
