@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, SetMetadata } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import * as dotenv from 'dotenv';
@@ -8,9 +8,8 @@ import { ConfigModule } from '@nestjs/config';
 
 import typeorm from './config/postgresDataSource';
 import { DatabaseModule } from './config/database.module';
-import { UsersModule } from './users/users.module';
+import { ClientModule } from './client/client.module';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
 
 dotenv.config();
 
@@ -20,10 +19,13 @@ dotenv.config();
     DatabaseModule,
     ServiceModule,
     DatabaseModule.forRoot(),
-    UsersModule,
+    ClientModule,
     AuthModule,
   ],
   controllers: [AppController, ServiceController],
   providers: [AppService],
 })
 export class AppModule {}
+
+export const IS_PUBLIC_KEY = 'isPublic';
+export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);
