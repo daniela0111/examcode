@@ -8,6 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 
 import typeorm from './config/postgresDataSource';
 import { DatabaseModule } from './config/database.module';
+import { UsersModule } from './users/users.module';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ dotenv.config();
     DatabaseModule,
     ServiceModule,
     DatabaseModule.forRoot(),
+    UsersModule,
   ],
   controllers: [AppController, ServiceController],
   providers: [AppService],
