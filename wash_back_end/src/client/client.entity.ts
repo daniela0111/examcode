@@ -13,4 +13,5 @@ export class Client {
 
   @Column()
   licence_plate: string;
+    password: string;
 }

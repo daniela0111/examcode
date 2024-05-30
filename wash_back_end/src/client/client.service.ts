@@ -5,6 +5,8 @@ import { Client } from './client.entity';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
 
+//export type Client = any;
+
 @Injectable()
 export class ClientService {
   constructor(
@@ -24,7 +26,8 @@ export class ClientService {
     await this.clientRepository.delete(id);
   }
 
-  async create(createClientDto: CreateClientDto){
+  async create(name: string, password: string){
+    return this.clientRepository.save({name, password}) //password can't be save as clear text
   }
   
   async update(id: number, updateClientDto: UpdateClientDto){
