@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
-import {}
+import { }
 //import { useDispatch } from 'react-redux';
 //import { setLogin } from '../reducers/authReducer'; 
 
