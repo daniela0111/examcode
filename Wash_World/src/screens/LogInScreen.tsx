@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
+import {}
 //import { useDispatch } from 'react-redux';
 //import { setLogin } from '../reducers/authReducer'; 
 
@@ -23,7 +24,13 @@ const LoginScreen: React.FC = () => {
     //   <button onClick={handleSignup} style={{ margin: '10px', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Sign Up</button>
     // </div>
     <View>
-      <Text style={{ fontSize: 20, textAlign: 'center' }}>LOGIN </Text>
+      <Text style={{ fontSize: 40, textAlign: 'center' }}>WASH</Text> 
+      <Text style={{ fontSize: 40, textAlign: 'center' }}>WORLD</Text>
+      <Text style={{ fontSize: 20, textAlign: 'center' }}>Sign in for getting the best deals!</Text>
+      <Button onClick={() => console.log('Login with email clicked')} style={{ fontSize: 20, textAlign: 'center' }}>Login with email</Button>
+      <Button onClick={() => console.log('Sign up clicked')} style={{ fontSize: 20, textAlign: 'center' }}>Sign up</Button>
+      <Button onClick={handleContinueAsGuest} style={{ margin: '10px', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Continue as Guest</Button>
+
     </View>
   );
 };
