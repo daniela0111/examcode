@@ -1,12 +1,13 @@
+//check authorization JWT –> allows user to access data
 import {
-    CanActivate,
+    CanActivate, //Interface for guard logic to determine access permission
     ExecutionContext,
     Injectable,
     UnauthorizedException,
   } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
-import { Request } from 'express';
+import { Request } from 'express'; //accessing the request object
 import { Module } from '@nestjs/common';
 import { ClientModule } from 'src/client/client.module';
 import { AppService } from 'src/app.service';
@@ -18,8 +19,8 @@ import { IS_PUBLIC_KEY } from 'src/app.module';
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
-    private jwtService: JwtService,
-    private reflector: Reflector,
+    private jwtService: JwtService, //for JWT verification
+    private reflector: Reflector, //for accessing route metadata
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -32,7 +33,7 @@ export class AuthGuard implements CanActivate {
     }
 
     const request = context.switchToHttp().getRequest();
-    const token = this.extractTokenFromHeader(request);
+    const token = this.extractTokenFromHeader(request); //retrieve the authorization token from the request header
     if (!token) {
       throw new UnauthorizedException();
     }
